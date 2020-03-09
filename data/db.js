@@ -11,6 +11,9 @@ module.exports = {
 };
 
 function find() {
+  //using a library called 'knex'
+  //to interact with the actual db
+  // syntax to fetch all records
   return db('users');
 }
 
