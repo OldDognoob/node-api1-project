@@ -1,5 +1,5 @@
 // implement your API here
-const helpers = require("./data/db.js");
+const db = require("./data/db.js");
 // we will write our API with express(barebones ilb for building web servers-Sinatra)
 //STEP 1 , INSTALL EXPRESS
 //STEP 2, IMPORT EXPRESS,commonjs syntax instead of natives ES modules
@@ -33,6 +33,7 @@ app.get(
 //   .status(200)
 //   .json({users})
 // })
+//[GET]find all users
 app.get("/api/users", (req, res) => {
   db.find()
     .then(users => {
@@ -82,6 +83,7 @@ app.get("/users/:id", (req, res) => {
 //axios.post('http://localhost:3333/users',user).then().catch()
 app.post("/users", (req, res) => {
   const { name, bio } = req.body;
+  const user = {name,bio}
   if (!name || !bio) {
     res
       .status(400)
